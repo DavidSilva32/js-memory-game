@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.4s;
+  font-family: monospace;
+  list-style-type: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fc1e8a;
+  user-select: none;
+}
+@media screen and (min-width: 768px) {
+  body {
+    align-items: normal;
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  background: linear-gradient(325deg, #03001e 0%, #7403c0 30%, #ec38bc 70%, #fdeff9 100%);
+  padding: 2.5rem 4rem;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    min-width: 500px;
+    min-height: 500px;
+  }
+}
+.container h2 {
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+@media screen and (min-width: 768px) {
+  .container h2 {
+    font-size: 3em;
+  }
+}
+.container .game {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+@media screen and (min-width: 768px) {
+  .container .game {
+    height: 430px;
+    width: 430px;
+    align-items: center;
+  }
+}
+.container .game .item {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 1.5em;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+}
+.container .game .item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #404040;
+  transform: rotateY(0deg);
+  transition: 0.25s;
+  backface-visibility: hidden;
+}
+.container .game .item.boxOpen {
+  transform: rotateY(0deg);
+}
+.container .game .item.boxOpen .boxMatch::after, .container .game .item.boxOpen::after {
+  transform: rotateY(180deg);
+}
+@media screen and (min-width: 400px) {
+  .container .game .item {
+    width: 65px;
+    height: 65px;
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 500px) {
+  .container .game .item {
+    width: 75px;
+    height: 75px;
+    font-size: 2.5em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container .game .item {
+    width: 100px;
+    height: 100px;
+    font-size: 3em;
+  }
+}
+.container .reset {
+  padding: 1rem 1.4rem;
+  width: 100%;
+  color: #000;
+  background: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .container .reset {
+    font-size: 1.5em;
+  }
+}
+.container .reset:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.container .reset:focus {
+  color: #ec38bc;
+  background: #262809;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+/*# sourceMappingURL=main.css.map */

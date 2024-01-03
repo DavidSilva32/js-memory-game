@@ -1,0 +1,133 @@
+@import 'mixins'
+@import 'variables'
+    
+// Reset the Website
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    transition: .4s
+    font-family: monospace
+    list-style-type: none
+
+// Styles of the Page(body)
+body
+    @include display-flex($align-items: center, $justify-content: center)
+    min-height: 100vh
+    background: $body-bg-color
+    user-select: none
+
+    @include responsive-display(768px)
+        align-items: normal    
+
+// Memory Game Style
+.container
+    position: relative
+    @include display-flex($align-items: center, $justify-content: center)
+    flex-direction: column
+    gap: 30px
+    background: $container-bg-color
+    padding: 2.5rem 4rem
+
+    min-width: 100vw
+    min-height: 100vh
+
+    @include responsive-display(768px)
+        width: 50%
+
+
+    @include responsive-display(768px)
+        min-width: 500px
+        min-height: 500px
+
+    h2
+        font-size: 2em
+        color: $primary-color
+        text-transform: uppercase
+        letter-spacing: .1em
+
+        @include responsive-display(768px)
+            font-size: 3em
+
+    .game
+        width: 100%
+        height: 350px
+
+        display: flex
+        flex-wrap: wrap
+        gap: 10px
+        transform-style: preserve-3d
+        perspective: 500px
+
+        @include responsive-display(768px)
+            height: 430px
+            width: 430px
+            align-items: center
+
+        //Emoji Cards
+        .item
+            position: relative
+            width: 50px
+            height: 50px
+
+            @include display-flex(center, $justify-content: center)
+            background: $primary-color
+
+            font-size: 1.5em
+            transform: rotateY(180deg)
+            transition: .25s
+
+            &::after
+              content: ""
+              position: absolute
+              inset: 0
+              background: #404040
+              transform: rotateY(0deg) 
+              transition: .25s 
+              backface-visibility: hidden
+
+            &.boxOpen
+                transform: rotateY(0deg)
+
+                .boxMatch::after, &::after
+                    transform: rotateY(180deg)  
+
+            @include responsive-display(400px)
+                width: 65px
+                height: 65px
+                font-size: 2em
+
+            @include responsive-display(500px)
+                width: 75px
+                height: 75px
+                font-size: 2.5em
+
+            @include responsive-display(768px)
+                width: 100px
+                height: 100px
+                font-size: 3em
+
+    // Styles of the Reset Button
+    .reset
+        padding: 1rem 1.4rem
+        width: 100%
+        color: $secondary-color
+        background: $primary-color
+        border: none
+        font-weight: 600
+        font-size: 1.2em
+        letter-spacing: .1em
+        text-transform: uppercase
+        cursor: pointer
+
+        @include responsive-display(768px)
+            font-size: 1.5em
+
+        &:hover
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px
+
+        &:focus
+            color: #ec38bc
+            background: #262809
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset
+    
